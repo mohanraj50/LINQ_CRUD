@@ -1,0 +1,47 @@
+﻿@model IEnumerable<linqcrud.employee>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.empname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.designation)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.empname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.designation)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.empid }) |
+                @Html.ActionLink("Details", "Details", new { id=item.empid }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.empid })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>
